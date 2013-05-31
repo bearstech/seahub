@@ -1040,6 +1040,7 @@ else:
 
 # search realted
 HAS_FILE_SEARCH = False
+HAS_TAGGING = False
 if EVENTS_CONFIG_FILE:
     def check_search_enabled():
         config = ConfigParser.ConfigParser()
@@ -1052,6 +1053,9 @@ if EVENTS_CONFIG_FILE:
         return enabled
 
     HAS_FILE_SEARCH = check_search_enabled()
+
+    if HAS_FILE_SEARCH:
+        HAS_TAGGING = True
 
 # Move to here to avoid circular import.
 from seahub.base.models import FileContributors, UserStarredFiles, DirFilesLastModifiedInfo, FileLastModifiedInfo
