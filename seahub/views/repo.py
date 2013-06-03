@@ -17,6 +17,7 @@ from seahub.forms import RepoPassowrdForm
 from seahub.views import gen_path_link, get_user_permission, get_repo_dirents
 from seahub.utils import get_ccnetapplet_root, get_accessible_repos, \
     is_file_starred, gen_file_upload_url, get_httpserver_root, gen_shared_link
+from seahub.settings import ENABLE_SUB_LIBRARY
 
 class RepoMixin(object):
     def get_repo_id(self):
@@ -227,6 +228,7 @@ class RepoView(LoginRequiredMixin, RepoMixin, TemplateResponseMixin,
         kwargs['history_limit'] = get_repo_history_limit(self.repo.id)
         if not self.repo.encrypted:
             kwargs['search_repo_id'] = self.repo.id
+        kwargs['ENABLE_SUB_LIBRARY'] = ENABLE_SUB_LIBRARY
 
         return kwargs
 
