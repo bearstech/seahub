@@ -175,6 +175,8 @@ span { /* text blocks within a line */
 @media screen { 
   #sidebar {
     background-color:#fff;
+    box-shadow:0 3px 6px #ccc; 
+    z-index:1; /*to make outline scrollbar work after zoom in page-container*/
   }
   #outline {
     font-family:Georgia,Times,"Times New Roman",serif;
@@ -235,20 +237,21 @@ span { /* text blocks within a line */
     left:0;
     top:0;
 }
-.outline-op-icon {
-    font-size:1.5em;
-    color:#000;
-    cursor:pointer;
-}
-#page-container {
-    position:relative;
-}
-#page-container .outline-op-icon {
-    position:absolute;
-    left:20px;
-    top:-5px;
-}
-#page-container .fixed-outline-op-icon {
+#pdf2html-toolbar {
     position:fixed;
-    top:25px;
+    left:50%;
+    bottom:0;
+    padding:2px 5px;
+    background: #646464;
+    border-radius:3px;
+    -ms-user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+#pdf2html-toolbar span {
+    font-size:1.5em;
+    color:#fff;
+    cursor:pointer;
+    margin: 0 0.3em;
 }
